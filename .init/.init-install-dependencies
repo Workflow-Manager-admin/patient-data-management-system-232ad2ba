@@ -1,0 +1,4 @@
+{
+    "command": "npm install",
+    "working_directory": "/home/kavia/workspace/code-generation/patient-data-management-system-232ad2ba/patient_data_frontend"
+}
