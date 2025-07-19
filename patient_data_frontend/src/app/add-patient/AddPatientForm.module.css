@@ -25,3 +25,53 @@
   background: #f3f6f9 !important;
   color: #aaa;
 }
+
+/* ---- Tab Styles for Add Patient Page ---- */
+
+.tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem 0;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: #fff;
+  transition: color 0.2s, border-bottom 0.2s, background 0.2s;
+}
+
+.tabSelected {
+  color: #1976d2;
+  border-bottom: 2.5px solid #1976d2;
+  background: #f5f7fa;
+  box-shadow: 0 2px 8px 0 rgba(25, 118, 210, 0.04);
+  z-index: 1;
+}
+
+.tab:not(.tabSelected) {
+  color: #454b53;
+  background: #fff;
+  border-bottom: 2px solid transparent;
+}
+
+@media (max-width: 600px) {
+  .tabs {
+    flex-direction: column;
+    gap: 0.25rem;
+    border-bottom: none;
+    background: #fff;
+  }
+  .tab,
+  .tabSelected {
+    border-bottom: 1px solid #eee;
+    border-radius: 8px;
+    background: #fff;
+  }
+}
