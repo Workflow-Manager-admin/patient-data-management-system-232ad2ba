@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import styles from "./AddPatientForm.module.css";
 
 const tabList = [
   { label: "Patient Demographics", key: "demographics" },
@@ -8,6 +9,7 @@ const tabList = [
   { label: "Comorbidities & Asthma Mimics", key: "comorbidities" },
 ];
 
+// PUBLIC_INTERFACE
 export default function AddPatientPage() {
   const [activeTab, setActiveTab] = useState(tabList[0].key);
   const [form, setForm] = useState({
@@ -25,7 +27,11 @@ export default function AddPatientPage() {
   });
 
   // PUBLIC_INTERFACE
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
+  function handleChange(
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   }
@@ -53,7 +59,9 @@ export default function AddPatientPage() {
           backgroundColor: "#fff",
         }}
       >
-        <h1 className="text-2xl font-semibold mb-6 text-center text-primary">Add New Patient</h1>
+        <h1 className="text-2xl font-semibold mb-6 text-center text-primary">
+          Add New Patient
+        </h1>
         {/* Tab Navigation */}
         <div className="flex border-b border-gray-200 mb-6">
           {tabList.map((tab) => (
@@ -79,11 +87,14 @@ export default function AddPatientPage() {
             <div className="flex flex-col gap-5">
               {/* Full Name */}
               <div>
-                <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="fullName">
+                <label
+                  className="block text-sm mb-1 font-medium text-gray-700"
+                  htmlFor="fullName"
+                >
                   Full Name
                 </label>
                 <input
-                  className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                  className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                   type="text"
                   id="fullName"
                   name="fullName"
@@ -97,11 +108,14 @@ export default function AddPatientPage() {
               {/* Age, Sex, DOB (grid) */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 <div>
-                  <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="age">
+                  <label
+                    className="block text-sm mb-1 font-medium text-gray-700"
+                    htmlFor="age"
+                  >
                     Age
                   </label>
                   <input
-                    className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                    className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                     type="number"
                     id="age"
                     name="age"
@@ -114,11 +128,14 @@ export default function AddPatientPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="sex">
+                  <label
+                    className="block text-sm mb-1 font-medium text-gray-700"
+                    htmlFor="sex"
+                  >
                     Sex
                   </label>
                   <select
-                    className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                    className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                     id="sex"
                     name="sex"
                     value={form.sex}
@@ -131,11 +148,14 @@ export default function AddPatientPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="dob">
+                  <label
+                    className="block text-sm mb-1 font-medium text-gray-700"
+                    htmlFor="dob"
+                  >
                     Date of Birth
                   </label>
                   <input
-                    className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                    className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                     type="date"
                     id="dob"
                     name="dob"
@@ -147,11 +167,14 @@ export default function AddPatientPage() {
 
               {/* Address */}
               <div>
-                <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="address">
+                <label
+                  className="block text-sm mb-1 font-medium text-gray-700"
+                  htmlFor="address"
+                >
                   Address
                 </label>
                 <textarea
-                  className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition resize-none"
+                  className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition resize-none ${styles.inputLightBg}`}
                   id="address"
                   name="address"
                   value={form.address}
@@ -164,11 +187,14 @@ export default function AddPatientPage() {
               {/* Contact, Email, Occupation */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 <div>
-                  <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="contactNumber">
+                  <label
+                    className="block text-sm mb-1 font-medium text-gray-700"
+                    htmlFor="contactNumber"
+                  >
                     Contact Number
                   </label>
                   <input
-                    className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                    className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                     type="tel"
                     id="contactNumber"
                     name="contactNumber"
@@ -178,11 +204,14 @@ export default function AddPatientPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="email">
+                  <label
+                    className="block text-sm mb-1 font-medium text-gray-700"
+                    htmlFor="email"
+                  >
                     Email
                   </label>
                   <input
-                    className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                    className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                     type="email"
                     id="email"
                     name="email"
@@ -192,11 +221,14 @@ export default function AddPatientPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="occupation">
+                  <label
+                    className="block text-sm mb-1 font-medium text-gray-700"
+                    htmlFor="occupation"
+                  >
                     Occupation
                   </label>
                   <input
-                    className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                    className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                     type="text"
                     id="occupation"
                     name="occupation"
@@ -210,11 +242,14 @@ export default function AddPatientPage() {
               {/* Clinic Number, Asthma Clinic ID, NIC */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 <div>
-                  <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="clinicNumber">
+                  <label
+                    className="block text-sm mb-1 font-medium text-gray-700"
+                    htmlFor="clinicNumber"
+                  >
                     Clinic Number
                   </label>
                   <input
-                    className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                    className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                     type="text"
                     id="clinicNumber"
                     name="clinicNumber"
@@ -223,11 +258,14 @@ export default function AddPatientPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="asthmaClinicID">
+                  <label
+                    className="block text-sm mb-1 font-medium text-gray-700"
+                    htmlFor="asthmaClinicID"
+                  >
                     Asthma Clinic ID
                   </label>
                   <input
-                    className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                    className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                     type="text"
                     id="asthmaClinicID"
                     name="asthmaClinicID"
@@ -236,11 +274,14 @@ export default function AddPatientPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-1 font-medium text-gray-700" htmlFor="nic">
+                  <label
+                    className="block text-sm mb-1 font-medium text-gray-700"
+                    htmlFor="nic"
+                  >
                     NIC
                   </label>
                   <input
-                    className="w-full border rounded px-3 py-2 text-gray-900 dark:text-white bg-gray-100 dark:bg-[#222] outline-none focus:ring-2 focus:ring-primary transition"
+                    className={`w-full border rounded px-3 py-2 text-gray-900 outline-none focus:ring-2 focus:ring-primary transition ${styles.inputLightBg}`}
                     type="text"
                     id="nic"
                     name="nic"
@@ -260,7 +301,9 @@ export default function AddPatientPage() {
           {activeTab !== "demographics" && (
             <div className="text-gray-500 flex flex-col justify-center items-center h-32">
               <span className="text-base mb-2">Tab content not implemented yet.</span>
-              <span className="text-xs">Please complete Patient Demographics to enable other tabs.</span>
+              <span className="text-xs">
+                Please complete Patient Demographics to enable other tabs.
+              </span>
             </div>
           )}
         </form>

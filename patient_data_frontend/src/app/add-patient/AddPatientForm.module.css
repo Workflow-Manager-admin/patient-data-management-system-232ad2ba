@@ -1,0 +1,27 @@
+.inputLightBg,
+.inputLightBg input,
+.inputLightBg select,
+.inputLightBg textarea {
+  background: #fff !important;
+  color: #222;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.2s;
+  box-shadow: none;
+}
+
+.inputLightBg input:focus,
+.inputLightBg select:focus,
+.inputLightBg textarea:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.10);
+}
+
+.inputLightBg input[disabled],
+.inputLightBg select[disabled],
+.inputLightBg textarea[disabled] {
+  background: #f3f6f9 !important;
+  color: #aaa;
+}
