@@ -37,9 +37,22 @@ export default function AddPatientPage() {
     alert("Patient demographics data submitted (not yet saved to backend)!");
   }
 
+  // Always enforce light background on entire page
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-[#0a0a0a] pt-10 px-4 sm:px-10">
-      <div className="max-w-2xl mx-auto w-full bg-white dark:bg-[#181818] shadow-lg rounded-lg p-6 sm:p-10 mt-6">
+    <div
+      className="flex flex-col min-h-screen pt-10 px-4 sm:px-10"
+      style={{
+        background: "#fff", // enforced light background
+        backgroundColor: "#fff",
+      }}
+    >
+      <div
+        className="max-w-2xl mx-auto w-full shadow-lg rounded-lg p-6 sm:p-10 mt-6"
+        style={{
+          background: "#fff", // enforced light background for card content as well
+          backgroundColor: "#fff",
+        }}
+      >
         <h1 className="text-2xl font-semibold mb-6 text-center text-primary">Add New Patient</h1>
         {/* Tab Navigation */}
         <div className="flex border-b border-gray-200 mb-6">
